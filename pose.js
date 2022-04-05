@@ -1,6 +1,13 @@
 import * as tf from '@tensorflow/tfjs'; 
 import * as posenet from '@tensorflow-models/posenet';
 import { drawKeypoints, drawSkeleton } from "./utils";
+import { Howl, Howler } from 'howler';
+
+var sound = new Howl({
+    src: ['/laser.mp3']
+});
+
+// sound.play()
 
 const initPostNet = async () => {
     const detectorConfig = {
@@ -46,11 +53,12 @@ const drawCanvas = (poses, canvas) => { //, video, videoWidth, videoHeight) => {
 
 const isRightRaised = (poses) => {
     for (const figure of poses) {
-        // console.log(figure)
-        if(figure.score > 0.5 &&
+        console.log(figure)
+        if(figure.score > 0.3 &&
            figure['keypoints'][0].score > 0.5 && figure['keypoints'][10].score > 0.5 &&
-           figure['keypoints'][10].position.y > figure['keypoints'][0].position.y) {
+           figure['keypoints'][10].position.y < figure['keypoints'][0].position.y) {
                console.log("RAISED")
+               sound.play()
         }
     }
 }
