@@ -1,0 +1,39 @@
+@import "./reset.css";
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+#container {
+  position: "absolute";
+  margin-left: "auto";
+  margin-right: "auto";
+	width: 640px;
+	height: 480px;
+	border: 10px #333 solid;
+  z-index: -5;
+}
+
+#videoElement {
+  position: "absolute";
+  margin-left: "auto";
+  margin-right: "auto";
+	width: 640px;
+	height: 480px;
+	background-color: #666;
+  z-index: 0;
+}
+
+#canvas {
+  position: "absolute";
+  margin-left: "auto";
+  margin-right: "auto";
+  width: 640px;
+  height: 480px;
+  z-index: 3;
+}
